@@ -24,9 +24,15 @@ public class NoBold implements IXposedHookZygoteInit,IXposedHookInitPackageResou
     }
 
     public void handleLoadPackage(final LoadPackageParam lpparam) throws Throwable {
+        boolean r_return = true;
+        for(String s : APPS_TO_HACK){
+            if(lpparam.packageName.equals(s)) {
+                r_return = false;
+                break;
+            }
+        }
+        if(r_return) return;
         XposedBridge.log("Loaded app: " + lpparam.packageName);
-        if (!lpparam.packageName.equals(APPS_TO_HACK[0]) && !lpparam.packageName.equals(APPS_TO_HACK[1]))
-            return;
 
         //XposedBridge.log("\n\n\n\nWe are in AOSP Dialer\n\n\n\n");
 
@@ -36,8 +42,15 @@ public class NoBold implements IXposedHookZygoteInit,IXposedHookInitPackageResou
 
     @Override
     public void handleInitPackageResources(XC_InitPackageResources.InitPackageResourcesParam resparam) throws Throwable {
-        if (!resparam.packageName.equals(APPS_TO_HACK[0]) && !resparam.packageName.equals(APPS_TO_HACK[1]))
-            return;
+        boolean r_return = true;
+        for(String s : APPS_TO_HACK){
+            if(resparam.packageName.equals(s)) {
+                r_return = false;
+                break;
+            }
+        }
+        if(r_return) return;
+        XposedBridge.log("Loaded app: " + resparam.packageName);
 
         //Get resources
         //XModuleResources modRes = XModuleResources.createInstance(MODULE_PATH, resparam.res);
