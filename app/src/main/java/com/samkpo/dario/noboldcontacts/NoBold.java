@@ -8,6 +8,8 @@ import de.robv.android.xposed.callbacks.XC_LoadPackage.LoadPackageParam;
 
 /**
  * Created by dario on 27/02/16.
+ *
+ * TODO Search the ContactsCommon library activity and there make the replacement
  */
 public class NoBold implements IXposedHookZygoteInit,IXposedHookInitPackageResources {
     private static String MODULE_PATH = null;
@@ -41,7 +43,7 @@ public class NoBold implements IXposedHookZygoteInit,IXposedHookInitPackageResou
         //XModuleResources modRes = XModuleResources.createInstance(MODULE_PATH, resparam.res);
 
         //Primary colors
-        resparam.res.setReplacement(resparam.packageName, "string", "letter_tile_letter_font_family", "sans-serif-light");
+        resparam.res.setReplacement(resparam.packageName, "string", "letter_tile_letter_font_family", "sans-serif-thin");
 
         XposedBridge.log("Replacing contacts typeface.");
     }
