@@ -1,7 +1,5 @@
 package com.samkpo.dario.noboldcontacts;
 
-import android.content.res.XModuleResources;
-
 import de.robv.android.xposed.IXposedHookInitPackageResources;
 import de.robv.android.xposed.IXposedHookZygoteInit;
 import de.robv.android.xposed.XposedBridge;
@@ -28,7 +26,7 @@ public class NoBold implements IXposedHookZygoteInit,IXposedHookInitPackageResou
         if (!lpparam.packageName.equals(APPS_TO_HACK[0]) && !lpparam.packageName.equals(APPS_TO_HACK[1]))
             return;
 
-        XposedBridge.log("\n\n\n\nWe are in AOSP Dialer\n\n\n\n");
+        //XposedBridge.log("\n\n\n\nWe are in AOSP Dialer\n\n\n\n");
 
         XposedBridge.log("Version: " + (BuildConfig.DEBUG ? BuildConfig.VERSION_NAME + " - " + BuildConfig.VERSION_CODE
                 : BuildConfig.VERSION_NAME));
@@ -45,8 +43,7 @@ public class NoBold implements IXposedHookZygoteInit,IXposedHookInitPackageResou
         //Primary colors
         resparam.res.setReplacement(resparam.packageName, "string", "letter_tile_letter_font_family", "sans-serif-light");
 
-        XposedBridge.log("Replacing data in contacts.");
-
+        XposedBridge.log("Replacing contacts typeface.");
     }
 
 }
