@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- Typeface key and default value -->
     <string name="prefs_typeface">typeface_selected</string>
     <string name="default_typeface">sans-serif-thin</string>
+
+    <!-- Show icon key -->
     <string name="show_launcher_icon">show_launcher_icon</string>
 </resources>

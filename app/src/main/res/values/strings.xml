@@ -1,7 +1,27 @@
 <resources>
+    <!-- App name, and activities titles -->
     <string name="app_name">No Bold Contacts</string>
     <string name="title_activity_settings">Settings</string>
+
+    <!-- Preferences strings -->
     <string name="select_typeface_textview">Typeface</string>
-    <string name="settings_warning_reboot">Rebooting the phone is mandatory so the changes can be applied.</string>
     <string name="show_icon_launcher_string">Show icon in the launcher</string>
+    <string name="preference_category_general_string">General</string>
+
+    <!-- General -->
+    <string name="action_ok">OK</string>
+
+    <!-- About dialog -->
+    <string name="action_about_app">About</string>
+    <string name="title_about_app">About app</string>
+    <string name="about_app_changelog">Changelog</string>
+    <string name="about_app_summary">No Bold Contacts v%1$s\nCopyright @ 2015 - 2015. Aguilera Dario</string>
+    <string name="about_body"><![CDATA[
+        This module was created to get back to the old thin letters in the contacts and dialer app.
+        By %1$s.
+        <a href="mailto:%2$s">Email</a><br/>
+        Thanks to:<br/>
+            - <a href="https://github.com/rovo89">rovo89</a> for creating Xposed<br/>
+    ]]></string>
+
 </resources>
