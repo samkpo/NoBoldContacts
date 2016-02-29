@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">No Bold Contacts</string>
     <string name="title_activity_settings">Settings</string>
-    <string name="select_typeface_textview">Typeface:</string>
+    <string name="select_typeface_textview">Typeface</string>
     <string name="settings_warning_reboot">Rebooting the phone is mandatory so the changes can be applied.</string>
     <string name="hide_icon_launcher_string">Show icon in the launcher</string>
 </resources>

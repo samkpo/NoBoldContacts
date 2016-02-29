@@ -1,6 +1,7 @@
 package com.samkpo.dario.noboldcontacts;
 
 import android.content.ComponentName;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
@@ -9,6 +10,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.Spinner;
@@ -26,6 +28,16 @@ public class SettingsActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
+
+        //Settins activity test
+        Button stetting = (Button)findViewById(R.id.settings_button);
+        stetting.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent _in = new Intent(SettingsActivity.this, Settings.class);
+                startActivity(_in);
+            }
+        });
 
         //Get app preferences
         mPreferences = getSharedPreferences("user_settings", MODE_WORLD_READABLE);
