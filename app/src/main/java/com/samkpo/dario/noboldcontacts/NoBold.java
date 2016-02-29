@@ -1,7 +1,10 @@
 package com.samkpo.dario.noboldcontacts;
 
+import android.content.res.XModuleResources;
+
 import de.robv.android.xposed.IXposedHookInitPackageResources;
 import de.robv.android.xposed.IXposedHookZygoteInit;
+import de.robv.android.xposed.XSharedPreferences;
 import de.robv.android.xposed.XposedBridge;
 import de.robv.android.xposed.callbacks.XC_InitPackageResources;
 import de.robv.android.xposed.callbacks.XC_LoadPackage.LoadPackageParam;
@@ -32,10 +35,8 @@ public class NoBold implements IXposedHookZygoteInit,IXposedHookInitPackageResou
             }
         }
         if(r_return) return;
+
         XposedBridge.log("Loaded app: " + lpparam.packageName);
-
-        //XposedBridge.log("\n\n\n\nWe are in AOSP Dialer\n\n\n\n");
-
         XposedBridge.log("Version: " + (BuildConfig.DEBUG ? BuildConfig.VERSION_NAME + " - " + BuildConfig.VERSION_CODE
                 : BuildConfig.VERSION_NAME));
     }
@@ -53,11 +54,18 @@ public class NoBold implements IXposedHookZygoteInit,IXposedHookInitPackageResou
         XposedBridge.log("Loaded app: " + resparam.packageName);
 
         //Get resources
-        //XModuleResources modRes = XModuleResources.createInstance(MODULE_PATH, resparam.res);
+        XModuleResources modRes = XModuleResources.createInstance(MODULE_PATH, resparam.res);
 
-        //Primary colors
-        resparam.res.setReplacement(resparam.packageName, "string", "letter_tile_letter_font_family", "sans-serif-thin");
+        //Preferences
+        //SharedPreferences pref = getSharedPreferences("user_settings", MODE_WORLD_READABLE);
+        XSharedPreferences pref = new XSharedPreferences("com.samkpo.dario.noboldcontacts", "user_settings");
 
+        //Get selected leter
+        XposedBridge.log("NoBold typeface key: " + modRes.getString(R.string.prefs_typeface));
+        String _selectedTypeface = pref.getString(modRes.getString(R.string.prefs_typeface), "sans-serif-light");
+
+        //letter
+        resparam.res.setReplacement(resparam.packageName, "string", "letter_tile_letter_font_family", _selectedTypeface);
         XposedBridge.log("Replacing contacts typeface.");
     }
 
