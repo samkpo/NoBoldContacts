@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="typefaces_available">
+        <item>sans-serif</item>           <!-- roboto regular              -->
+        <item>sans-serif-light</item>     <!-- roboto light                -->
+        <item>sans-serif-condensed</item> <!-- roboto condensed            -->
+        <item>sans-serif-thin</item>      <!-- roboto thin (android 4.2)   -->
+        <item>sans-serif-medium</item>    <!-- roboto medium (android 5.0) -->
+    </string-array>
+
+    <string-array name="typefaces_avaialables_names">
+        <item>Roboto regular</item>
+        <item>Roboto light</item>
+        <item>Roboto condensed</item>
+        <item>Roboto thin</item>
+        <item>Roboto medium</item>
+    </string-array>
+</resources>
