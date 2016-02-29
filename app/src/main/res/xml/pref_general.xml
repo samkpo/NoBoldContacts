@@ -1,0 +1,17 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <CheckBoxPreference
+        android:defaultValue="true"
+        android:key="@string/show_launcher_icon"
+        android:title="@string/show_icon_launcher_string" />
+
+    <ListPreference
+        android:defaultValue="@string/default_typeface"
+        android:entries="@array/typefaces_avaialables_names"
+        android:entryValues="@array/typefaces_available"
+        android:key="@string/prefs_typeface"
+        android:negativeButtonText="@null"
+        android:positiveButtonText="@null"
+        android:title="@string/select_typeface_textview" />
+
+</PreferenceScreen>
