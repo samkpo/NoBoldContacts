@@ -1,12 +1,16 @@
 package com.samkpo.dario.noboldcontacts;
 
+import android.content.ComponentName;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.app.Activity;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.Spinner;
 
 import java.util.ArrayList;
@@ -53,6 +57,25 @@ public class SettingsActivity extends Activity {
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
 
+            }
+        });
+
+
+        //Show launcher icon
+        boolean m_showIcon = mPreferences.getBoolean(getString(R.string.show_launcher_icon), false);
+
+        //Configure show icon
+        CheckBox _showIcon = (CheckBox)findViewById(R.id.pref_show_app_icon);
+        _showIcon.setChecked(m_showIcon);
+        _showIcon.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                PackageManager packageManager = getPackageManager();
+                int state = b ? PackageManager.COMPONENT_ENABLED_STATE_ENABLED : PackageManager.COMPONENT_ENABLED_STATE_DISABLED;
+                ComponentName aliasName = new ComponentName(SettingsActivity.this, "com.samkpo.dario.noboldcontacts.SettingsActivity-Alias");
+                packageManager.setComponentEnabledSetting(aliasName, state, PackageManager.DONT_KILL_APP);
+
+                mPreferences.edit().putBoolean(getString(R.string.show_launcher_icon), b).apply();
             }
         });
     }

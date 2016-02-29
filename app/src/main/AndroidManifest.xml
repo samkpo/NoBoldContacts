@@ -18,15 +18,22 @@
             android:name="xposedminversion"
             android:value="78" />
 
-        <activity
-            android:name=".SettingsActivity"
-            android:label="@string/title_activity_settings" >
+        <activity android:name="com.samkpo.dario.noboldcontacts.SettingsActivity">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="de.robv.android.xposed.category.MODULE_SETTINGS"/>
             </intent-filter>
         </activity>
+        <activity-alias
+            android:enabled="false"
+            android:name="com.samkpo.dario.noboldcontacts.SettingsActivity-Alias"
+            android:label="@string/title_activity_settings"
+            android:targetActivity="com.samkpo.dario.noboldcontacts.SettingsActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity-alias>
     </application>
 
 </manifest>
