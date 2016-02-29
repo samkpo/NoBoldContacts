@@ -28,7 +28,7 @@
 
         <activity-alias
             android:name=".SettingsActivity-Alias"
-            android:enabled="false"
+            android:enabled="true"
             android:label="@string/title_activity_settings"
             android:targetActivity=".SettingsActivity">
             <intent-filter>
@@ -38,9 +38,6 @@
             </intent-filter>
         </activity-alias>
 
-        <activity
-            android:name=".Settings"
-            android:label="@string/title_activity_settings"></activity>
     </application>
 
 </manifest>

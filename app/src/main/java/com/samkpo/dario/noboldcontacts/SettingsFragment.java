@@ -1,11 +1,15 @@
 package com.samkpo.dario.noboldcontacts;
 
+import android.content.ComponentName;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.preference.CheckBoxPreference;
 import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceManager;
+import android.preference.SwitchPreference;
 import android.util.Log;
 
 /**
@@ -24,16 +28,29 @@ public class SettingsFragment extends PreferenceFragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        addPreferencesFromResource(R.xml.pref_general);
 
         //Set preferences mode and name
         getPreferenceManager().setSharedPreferencesMode(getContext().MODE_WORLD_READABLE);
         getPreferenceManager().setSharedPreferencesName("user_settings");
 
-        // Bind the summaries of EditText/List/Dialog/Ringtone preferences to
-        // their values. When their values change, their summaries are updated
-        // to reflect the new value, per the Android Design guidelines.
-        //bindPreferenceSummaryToValue(findPreference(Keys.APP_THEME));
+        //Add preferences
+        addPreferencesFromResource(R.xml.pref_general);
+
+        //Update llist value
+        bindPreferenceSummaryToValue(findPreference(getString(R.string.prefs_typeface)));
+
+        //Update show icon state
+        Preference showAppIcon = findPreference(getString(R.string.show_launcher_icon));
+        showAppIcon.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
+            @Override
+            public boolean onPreferenceChange(Preference preference, Object newValue) {
+                PackageManager packageManager = getActivity().getPackageManager();
+                int state = (Boolean) newValue ? PackageManager.COMPONENT_ENABLED_STATE_ENABLED : PackageManager.COMPONENT_ENABLED_STATE_DISABLED;
+                ComponentName aliasName = new ComponentName(SettingsFragment.super.getContext(), "com.samkpo.dario.noboldcontacts.SettingsActivity-Alias");
+                packageManager.setComponentEnabledSetting(aliasName, state, PackageManager.DONT_KILL_APP);
+                return true;
+            }
+        });
 
     }
 
@@ -45,6 +62,7 @@ public class SettingsFragment extends PreferenceFragment {
         @Override
         public boolean onPreferenceChange(Preference preference, Object value) {
             String stringValue = value.toString();
+            Log.v(TAG, stringValue);
             if (preference instanceof ListPreference) {
                 // For list preferences, look up the correct display value in
                 // the preference's 'entries' list.
