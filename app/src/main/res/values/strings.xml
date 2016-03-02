@@ -15,7 +15,7 @@
     <string name="action_about_app">About</string>
     <string name="title_about_app">About app</string>
     <string name="about_app_changelog">Changelog</string>
-    <string name="about_app_summary">No Bold Contacts v%1$s\nCopyright @ 2015 - 2015. Aguilera Dario</string>
+    <string name="about_app_summary">No Bold Contacts v%1$s\nCopyright (C) %2$s. Aguilera Dario</string>
     <string name="about_body"><![CDATA[
         This module was created to get back to the old thin letters in the contacts and dialer app.
         By %1$s.

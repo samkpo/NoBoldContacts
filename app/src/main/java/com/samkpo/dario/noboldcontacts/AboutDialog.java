@@ -50,7 +50,8 @@ public class AboutDialog extends DialogPreference {
         setSummary(String.format(
                 getContext().getString(R.string.about_app_summary),
                 (BuildConfig.DEBUG ? BuildConfig.VERSION_NAME + " - " + BuildConfig.VERSION_CODE
-                                   : BuildConfig.VERSION_NAME)
+                                   : BuildConfig.VERSION_NAME),
+                "2016 - " + getContext().getString(R.string.currentBuildYear)
         ));
     }
 

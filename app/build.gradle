@@ -9,6 +9,11 @@ android {
         minSdkVersion 23
         targetSdkVersion 23
 
+        //Get year
+        def buildYear = "date +%Y".execute().text
+        resValue "string", "currentBuildYear", buildYear
+        printf("Year: " + buildYear)
+
         //Taken from here: http://blog.android-develop.com/2014/09/automatic-versioning-and-increment.html
         // Fetch the version according to git latest tag and "how far are we from last tag"
         def longVersionName = "git describe --tags --long".execute().text.trim().replace("v", "")
