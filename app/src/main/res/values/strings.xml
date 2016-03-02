@@ -15,11 +15,12 @@
     <string name="action_about_app">About</string>
     <string name="title_about_app">About app</string>
     <string name="about_app_changelog">Changelog</string>
-    <string name="about_app_summary">No Bold Contacts v%1$s\nCopyright (C) %2$s. Aguilera Dario</string>
+    <string name="about_app_summary">v%1$s\nCopyright &#169; %2$s Aguilera Dario</string>
     <string name="about_body"><![CDATA[
-        This module was created to get back to the old thin letters in the contacts and dialer app.
-        By %1$s.
-        <a href="mailto:%2$s">Email</a><br/>
+        <b>%1$s</b> - <a href="mailto:%2$s">Email</a>.
+         <a href="https://github.com/samkpo/NoBoldContacts">Github</a><br/><br/>
+        Small Xposed module to change the bold letters in contacts/dialer apps back to thin letters.
+        This was developed tested with CyanogenMOD 13. Other ROMS may or may not work.<br/><br/>
         Thanks to:<br/>
             - <a href="https://github.com/rovo89">rovo89</a> for creating Xposed<br/>
     ]]></string>

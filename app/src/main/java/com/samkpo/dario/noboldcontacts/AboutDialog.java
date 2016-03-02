@@ -44,14 +44,14 @@ public class AboutDialog extends DialogPreference {
         setNegativeButtonText(null);
 
         //Set dialog title
-        setDialogTitle(getContext().getString(R.string.title_about_app));
+        setDialogTitle(getContext().getString(R.string.app_name));
 
         //Lets set the summary
         setSummary(String.format(
                 getContext().getString(R.string.about_app_summary),
                 (BuildConfig.DEBUG ? BuildConfig.VERSION_NAME + " - " + BuildConfig.VERSION_CODE
                                    : BuildConfig.VERSION_NAME),
-                "2016 - " + getContext().getString(R.string.currentBuildYear)
+                getContext().getString(R.string.currentBuildYear)
         ));
     }
 

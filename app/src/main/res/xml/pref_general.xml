@@ -35,9 +35,9 @@
 
     <!-- About dialog -->
     <PreferenceCategory
-        android:title="@string/app_name" >
+        android:title="@string/action_about_app" >
         <com.samkpo.dario.noboldcontacts.AboutDialog
-            android:title="@string/title_about_app"
+            android:title="@string/app_name"
             android:editable="false" />
     </PreferenceCategory>
 

@@ -1,6 +1,8 @@
-Version 0.1
+Version 0.3.0
 -----------
-Initial release
+First usable version
 
 Features
-* Start
+* Possibility to hide icon from launcher
+* List to select the type of font you that want to use in the apps
+
